@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <!--pay attention parent -->
+    <parent>
+        <!--artifactId of parent pom -->
+        <artifactId>mavenTestProject</artifactId>
+        <groupId>com.start</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>utilModule</artifactId>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.start</groupId>
+            <artifactId>supportModule</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
+
+    </dependencies>
+
+
+
+    <build>
+        <finalName>util</finalName>
+
+        <plugins>
+       <!-- <plugin>
+          &lt;!&ndash;Build an executable JAR&ndash;&gt;
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-jar-plugin</artifactId>
+            <version>3.1.0</version>
+            <configuration>
+                <archive>
+                    <manifest>
+                        <addClasspath>true</addClasspath>
+                        <classpathPrefix>lib/</classpathPrefix>
+                        <mainClass>com.start.util.Main</mainClass>
+                    </manifest>
+                </archive>
+            </configuration>
+        </plugin>-->
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-assembly-plugin</artifactId>
+
+            <configuration>
+
+                <archive>
+                    <manifest>
+                        <addClasspath>true</addClasspath>
+                        <classpathPrefix>lib/</classpathPrefix>
+                        <mainClass>com.start.util.Main</mainClass>
+                    </manifest>
+                </archive>
+
+                <descriptorRefs>
+                    <descriptorRef>jar-with-dependencies</descriptorRef>
+                </descriptorRefs>
+
+               <!-- to avoid the annoying "-jar-with-dependencies" suffix in the name-->
+                <appendAssemblyId>false</appendAssemblyId>
+
+            </configuration>
+
+            <executions>
+                <execution>
+                    <id>make-assembly</id>  <!--this is used for inheritance merges -->
+                    <phase>package</phase>  <!--bind to the packaging phase -->
+                    <goals>
+                        <goal>single</goal>
+                    </goals>
+                </execution>
+            </executions>
+
+        </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-site-plugin</artifactId>
+                <version>3.8.2</version>
+            </plugin>
+
+
+
+    </plugins>
+
+    </build>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.source>1.8</maven.compiler.source>
+    </properties>
+
+</project>
