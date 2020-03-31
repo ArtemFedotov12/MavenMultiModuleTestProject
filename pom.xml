@@ -14,7 +14,7 @@
         <module>utilModule</module>
         <module>supportModule</module>
     </modules>
-    <!-- pay attention as this parent pom, therefore packains is 'pom' -->
+    <!-- pay attention as this parent pom, therefore packaging is 'pom' -->
     <packaging>pom</packaging>
 
 
@@ -50,14 +50,6 @@
             <type>maven-plugin</type>
         </dependency>
 
-        <!--  <dependency>
-              <groupId>com.start</groupId>
-              <artifactId>utilModule</artifactId>
-              <version>1.0-SNAPSHOT</version>
-          </dependency>-->
-
-
-
     </dependencies>
 
 
@@ -87,7 +79,7 @@
 
     <build>
         <plugins>
-            &lt;!&ndash;           <plugin>
+                   <plugin>
                            <groupId>org.apache.maven.plugins</groupId>
                            <artifactId>maven-antrun-plugin</artifactId>
                            <version>1.1</version>
@@ -105,69 +97,20 @@
                                    </configuration>
                                </execution>
                            </executions>
-                       </plugin>&ndash;&gt;
-
-            &lt;!&ndash;           <plugin>
-                            &lt;!&ndash; Build an executable JAR&ndash;&gt;
-                            <groupId>org.apache.maven.plugins</groupId>
-                            <artifactId>maven-jar-plugin</artifactId>
-                            <version>3.1.0</version>
-                            <configuration>
-                                <archive>
-                                    <manifest>
-                                        <addClasspath>true</addClasspath>
-                                        <classpathPrefix>lib/</classpathPrefix>
-                                        <mainClass>com.start.Main</mainClass>
-                                    </manifest>
-                                </archive>
-                            </configuration>
-                        </plugin>&ndash;&gt;
-
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-assembly-plugin</artifactId>
-
-                <configuration>
-
-                    <archive>
-                        <manifest>
-                            <addClasspath>true</addClasspath>
-                            <classpathPrefix>lib/</classpathPrefix>
-                            <mainClass>com.start.Main</mainClass>
-                        </manifest>
-                    </archive>
-
-                    <descriptorRefs>
-                        <descriptorRef>jar-with-dependencies</descriptorRef>
-                    </descriptorRefs>
-
-                    &lt;!&ndash;to avoid the annoying "-jar-with-dependencies" suffix in the name&ndash;&gt;
-                    <appendAssemblyId>false</appendAssemblyId>
-
-                </configuration>
-
-                <executions>
-                    <execution>
-                        <id>make-assembly</id> &lt;!&ndash; this is used for inheritance merges &ndash;&gt;
-                        <phase>package</phase> &lt;!&ndash; bind to the packaging phase &ndash;&gt;
-                        <goals>
-                            <goal>single</goal>
-                        </goals>
-                    </execution>
-                </executions>
-
-            </plugin>
-
+                       </plugin>
 
         </plugins>
         <finalName>mavenTest</finalName>
     </build>-->
 
-<!--    <properties>
+    <build>
+        <finalName>mavenTest</finalName>
+    </build>
+
+    <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.target>1.8</maven.compiler.target>
         <maven.compiler.source>1.8</maven.compiler.source>
-        &lt;!&ndash; <jdk.version>1.8</jdk.version>&ndash;&gt;
-    </properties>-->
+    </properties>
 
 </project>

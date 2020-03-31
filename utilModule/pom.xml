@@ -25,60 +25,46 @@
     </dependencies>
 
 
-
     <build>
-        <finalName>util</finalName>
+        <!-- We inherit finalName from our parent pom -->
+        <!--<finalName>util</finalName>-->
 
         <plugins>
-       <!-- <plugin>
-          &lt;!&ndash;Build an executable JAR&ndash;&gt;
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-jar-plugin</artifactId>
-            <version>3.1.0</version>
-            <configuration>
-                <archive>
-                    <manifest>
-                        <addClasspath>true</addClasspath>
-                        <classpathPrefix>lib/</classpathPrefix>
-                        <mainClass>com.start.util.Main</mainClass>
-                    </manifest>
-                </archive>
-            </configuration>
-        </plugin>-->
-        <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-assembly-plugin</artifactId>
 
-            <configuration>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
 
-                <archive>
-                    <manifest>
-                        <addClasspath>true</addClasspath>
-                        <classpathPrefix>lib/</classpathPrefix>
-                        <mainClass>com.start.util.Main</mainClass>
-                    </manifest>
-                </archive>
+                <configuration>
 
-                <descriptorRefs>
-                    <descriptorRef>jar-with-dependencies</descriptorRef>
-                </descriptorRefs>
+                    <archive>
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                            <classpathPrefix>lib/</classpathPrefix>
+                            <mainClass>com.start.util.Main</mainClass>
+                        </manifest>
+                    </archive>
 
-               <!-- to avoid the annoying "-jar-with-dependencies" suffix in the name-->
-                <appendAssemblyId>false</appendAssemblyId>
+                    <descriptorRefs>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>
 
-            </configuration>
+                    <!-- to avoid the annoying "-jar-with-dependencies" suffix in the name-->
+                    <appendAssemblyId>false</appendAssemblyId>
 
-            <executions>
-                <execution>
-                    <id>make-assembly</id>  <!--this is used for inheritance merges -->
-                    <phase>package</phase>  <!--bind to the packaging phase -->
-                    <goals>
-                        <goal>single</goal>
-                    </goals>
-                </execution>
-            </executions>
+                </configuration>
 
-        </plugin>
+                <executions>
+                    <execution>
+                        <id>make-assembly</id>  <!--this is used for inheritance merges -->
+                        <phase>package</phase>  <!--bind to the packaging phase -->
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+
+            </plugin>
 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -86,16 +72,9 @@
                 <version>3.8.2</version>
             </plugin>
 
-
-
-    </plugins>
+        </plugins>
 
     </build>
 
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.target>1.8</maven.compiler.target>
-        <maven.compiler.source>1.8</maven.compiler.source>
-    </properties>
 
 </project>
